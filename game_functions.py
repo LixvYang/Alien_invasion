@@ -27,9 +27,6 @@ def update_screen(ai_settings,screen,ship,bullets):
         bullet.draw_bullet()
     ship.blitme()
 
-    
-
-
     #让最近的屏幕绘制可见
     pygame.display.flip()
 
@@ -39,6 +36,10 @@ def check_keydown_events(event,ai_settings,screen,ship,bullets):
         ship.moving_right = True
     elif event.key == pygame.K_LEFT:
         ship.moving_left = True
+    elif event.key == pygame.K_UP:
+        ship.moving_up = True
+    elif event.key == pygame.K_DOWN:
+        ship.moving_down = True
     elif event.key == pygame.K_SPACE:
         # 创建一颗子弹并加入bullets
         new_bullet = Bullet(ai_settings, screen, ship)
@@ -50,3 +51,7 @@ def check_keyup_events(event,ship):
         ship.moving_right = False
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
+    elif event.key == pygame.K_UP:
+        ship.moving_up = False
+    elif event.key == pygame.K_DOWN:
+        ship.moving_down = False
